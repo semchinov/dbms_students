@@ -1,3 +1,5 @@
+// src/main/java/com/example/demo/enrollment/implementation/MyEnrollmentService.java
+
 package com.example.demo.enrollment.implementation;
 
 import com.example.demo.enrollment.EnrollmentService;
@@ -7,6 +9,7 @@ import com.example.demo.enrollment.exception.StudentNotFoundException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MyEnrollmentService implements EnrollmentService {
@@ -16,6 +19,7 @@ public class MyEnrollmentService implements EnrollmentService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Transactional
     @Override
     public void enrollStudent(int studentId, int courseId) {
         boolean studentExists = Boolean.TRUE.equals(
