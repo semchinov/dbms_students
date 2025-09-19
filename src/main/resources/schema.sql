@@ -38,7 +38,6 @@ CREATE TABLE courses (
                          name             VARCHAR(255) NOT NULL,
                          generation_hours INTEGER NOT NULL,
                          instructor_id    INTEGER NOT NULL,
-                         max_students     INTEGER NOT NULL DEFAULT 20,
                          CONSTRAINT fk_courses_teacher FOREIGN KEY (instructor_id)
                              REFERENCES teachers (id)
 );
