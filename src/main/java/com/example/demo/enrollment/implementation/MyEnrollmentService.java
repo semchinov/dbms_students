@@ -1,12 +1,12 @@
-// src/main/java/com/example/demo/enrollment/implementation/MyEnrollmentService.java
-
 package com.example.demo.enrollment.implementation;
 
 import com.example.demo.enrollment.EnrollmentService;
 import com.example.demo.enrollment.exception.CourseIsFullException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MyEnrollmentService implements EnrollmentService {
     private final JdbcTemplate jdbcTemplate;
 
