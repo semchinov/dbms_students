@@ -2,6 +2,8 @@ package com.example.demo.enrollment.implementation;
 
 import com.example.demo.enrollment.EnrollmentService;
 import com.example.demo.enrollment.exception.CourseIsFullException;
+import com.example.demo.enrollment.exception.CourseNotFoundException;
+import com.example.demo.enrollment.exception.StudentNotFoundException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -24,7 +26,7 @@ public class MyEnrollmentService implements EnrollmentService {
                 )
         );
         if (!studentExists) {
-            throw new IllegalArgumentException("Student with id " + studentId + " does not exist");
+            throw new StudentNotFoundException("Student with id " + studentId + " does not exist");
         }
 
         boolean courseExists = Boolean.TRUE.equals(
@@ -35,7 +37,7 @@ public class MyEnrollmentService implements EnrollmentService {
                 )
         );
         if (!courseExists) {
-            throw new IllegalArgumentException("Course with id " + courseId + " does not exist");
+            throw new CourseNotFoundException("Course with id " + courseId + " does not exist");
         }
 
         Integer maxStudents = jdbcTemplate.queryForObject(
