@@ -1,3 +1,6 @@
+-- /src/main/resources/schema.sql
+
+
 -- Сначала убираем зависимые таблицы, чтобы не мешали внешние ключи
 DROP TABLE IF EXISTS enrollments;
 DROP TABLE IF EXISTS courses;

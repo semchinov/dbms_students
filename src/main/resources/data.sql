@@ -1,3 +1,6 @@
+-- /src/main/resources/data.sql
+
+
 -- Преподы, на которых ссылаются курсы
 INSERT INTO teachers (id, full_name, email) VALUES
     (1, 'Ivan Petrov', 'ivan.petrov@example.com'),
